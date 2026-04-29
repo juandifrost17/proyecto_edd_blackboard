@@ -1,0 +1,9 @@
+id,nombre,formulaPosfija
+C1,Promedio de Tareas,Tarea 1 *
+C2,Nota Examen,Examen 1 *
+C3,Nota Final Curso,Tarea 0.3 * Proyecto 0.3 * + Examen 0.4 * +
+C4,Solo Proyectos,Proyecto 1 *
+C5,Suma Ponderada Tareas,Tarea 0.3 *
+C6,Suma Ponderada Proyecto,Proyecto 0.3 *
+C7,Suma Ponderada Examen,Examen 0.4 *
+C8,Nota Necesaria en Examen,70 Tarea 0.3 * - Proyecto 0.3 * - 0.4 /

@@ -1,0 +1,27 @@
+id_estudiante,id_actividad,contenido,calificacion,fecha_entrega,calificada
+E001,A001,"Solución completa",85,2026-02-06T20:00,true
+E001,A002,"Examen correcto",85,2026-02-21T19:00,true
+E001,A003,"Proyecto final",90,2026-02-28T18:00,true
+E001,A004,"Tarea completa",75,2026-02-14T22:00,true
+E001,A005,"Tarea 3 completa",92,2026-02-19T09:00,true
+E001,A006,"Proyecto fase 2 completo",94,2026-03-06T17:00,true
+E001,A007,"Proyecto fase 3 final",96,2026-03-13T21:00,true
+E001,A008,"Examen mejoramiento",88,2026-03-12T18:00,true
+E002,A001,"Tarea parcial",65,2026-02-08T20:00,true
+E002,A002,"Examen finalizado",100,2026-02-22T10:00,true
+E002,A003,"",,2026-02-28T20:00,false
+E003,A002,"Examen finalizado",60,2026-02-22T18:00,true
+E003,A003,"Proyecto",75,2026-02-28T23:59,true
+E003,A004,"OK",70,2026-02-16T01:30,true
+E004,A001,"Tarea enviada",70,2026-02-07T23:00,true
+E004,A002,"",90,2026-02-18T10:00,true
+E005,A001,"Archivo adjunto",88,2026-02-06T15:00,true
+E005,A002,"Examen finalizado",60,2026-02-22T18:00,true
+E005,A003,"Link al repositorio",95,2026-02-27T10:00,true
+E005,A005,"Resumen de lectura",,2026-02-20T16:30,false
+E006,A001,"PDF de tarea",70,2026-02-07T23:50,true
+E006,A002,"Examen finalizado",60,2026-02-22T18:00,true
+E006,A004,"Documento final",,2026-02-15T20:00,false
+E007,A002,"Examen finalizado",60,2026-02-22T18:00,true
+E007,A003,"Proyecto en zip",80,2026-02-28T11:15,true
+E007,A002,"Examen finalizado",67,2026-02-22T18:00,true

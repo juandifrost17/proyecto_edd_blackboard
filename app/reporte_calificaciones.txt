@@ -1,0 +1,86 @@
+=== REPORTE DE CALIFICACIONES ===
+--------------------------------------------------
+Estudiante: María López (ID: E002)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 0.00 (Sin entrega)
+    - Examen 1             : 100,00
+    - Tarea 1              : 65,00
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 0,00
+    - Suma Ponderada Examen : 40,00
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Ana Torres (ID: E004)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 0.00 (Sin entrega)
+    - Examen 1             : 90,00
+    - Tarea 1              : 70,00
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 0,00
+    - Suma Ponderada Examen : 36,00
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Carmen Ruiz (ID: E006)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 0.00 (Sin entrega)
+    - Examen 1             : 60,00
+    - Tarea 1              : 70,00
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 0,00
+    - Suma Ponderada Examen : 24,00
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Diego Gómez (ID: E007)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 0.00 (Sin entrega)
+    - Examen 1             : 60,00
+    - Tarea 1              : 0.00 (Sin entrega)
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 24,00
+    - Suma Ponderada Examen : 25,40
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Carlos Ramírez (ID: E003)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 70,00
+    - Examen 1             : 60,00
+    - Tarea 1              : 0.00 (Sin entrega)
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 22,50
+    - Suma Ponderada Examen : 24,00
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Justin Soledispa (ID: E001)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 94,00
+    - Tarea 2              : 75,00
+    - Examen 1             : 85,00
+    - Tarea 1              : 85,00
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 28,00
+    - Suma Ponderada Examen : 34,60
+    - nombre               : 0,00
+--------------------------------------------------
+Estudiante: Luis Enriquez (ID: E005)
+  >> Actividades Evaluadas:
+    - DUMMY                : 0.00 (Sin entrega)
+    - Proyecto Fase 2      : 0.00 (Sin entrega)
+    - Tarea 2              : 0.00 (Sin entrega)
+    - Examen 1             : 60,00
+    - Tarea 1              : 88,00
+  >> Cálculos Evaluados:
+    - Suma Ponderada Proyecto : 28,50
+    - Suma Ponderada Examen : 24,00
+    - nombre               : 0,00
+--------------------------------------------------
