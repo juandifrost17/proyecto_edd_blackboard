@@ -1,6 +1,6 @@
 # Blackboard
 
-Sistema simplificado de Libro de Calificaciones para la gestión modular de un curso mediante el uso explícito de listas compuestas y pilas.
+Sistema simplificado de Libro de Calificaciones que opera desde un comienzo en dos modos de presentación: modo consola y modo con interfaz gráfica. Implementa la gestión modular de un curso académico mediante el uso explícito de listas compuestas y pilas.
 
 **Flujo:** Carga de archivos CSV → Evaluación de fórmulas con pilas → Generación de consultas y reportes dinámicos
 
@@ -11,20 +11,19 @@ Sistema simplificado de Libro de Calificaciones para la gestión modular de un c
 | Capa / Módulo | Tecnología |
 | --- | --- |
 | Lógica y Modelo | Java |
-| Estructuras de Datos | Colecciones nativas e implementaciones de TDA propios |
 | Interfaz Gráfica | JavaFX |
-| Persistencia | Archivos planos CSV y TXT |
+| Persistencia | Archivos CSV y TXT |
 
 ---
 
 ## Módulos
 
-El sistema se estructura bajo un enfoque netamente modular donde cada clase cumple una responsabilidad específica dentro del dominio.
+El proyecto se estructura bajo un enfoque modular donde cada clase cumple una responsabilidad específica dentro del sistema.
 
-* **Modelo de Dominio**: Entidades que representan la estructura académica central (`Estudiante`, `Actividad`, `Entrega`, `Calculo`).
-* **Estructuras de Datos**: Implementación del TDA `ListaCompuesta<E, F>` y `NodoCompuesto<E, F>` genéricos para manejar relaciones principales con sublistas secundarias sin duplicación de código.
-* **Procesamiento y Lógica**: Clases coordinadoras encargadas de la persistencia (`CargadorDatos`), filtrado de datos mediante múltiples comparadores (`GestorConsultas`, `ServicioConsultas`) y evaluación matemática de fórmulas en notación posfija (`GestorCalculos`, `EvaluadorCalculos`).
-* **Capa de Presentación**: Arquitectura dual que reutiliza el núcleo de negocio para interactuar a través de consola (`SistemaConsola`) o de ventanas gráficas en JavaFX.
+* **Modelo**: Clases que representan las entidades principales del dominio (`Estudiante`, `Actividad`, `Entrega`, `Calculo`).
+* **Estructuras**: Implementación de tipos genéricos con `ListaCompuesta<E, F>` y `NodoCompuesto<E, F>` para las relaciones de entidades y sus sublistas de entregas.
+* **Coordinación y Lógica**: Clases dedicadas a la persistencia (`CargadorDatos`), ejecución de filtros mediante comparadores (`GestorConsultas`, `ServicioConsultas`) y procesamiento de fórmulas matemáticas (`GestorCalculos`, `EvaluadorCalculos`).
+* **Presentación**: Capa gráfica desarrollada en JavaFX y sistema de menús en consola que comparten y reutilizan la misma lógica de negocio.
 
 ---
 
@@ -32,17 +31,23 @@ El sistema se estructura bajo un enfoque netamente modular donde cada clase cump
 
 | Módulo | Descripción |
 | --- | --- |
-| Carga de Datos | Construye las estructuras internas leyendo de forma automatizada los archivos CSV iniciales. |
-| Evaluación de Cálculos | Procesa fórmulas agregadas en notación posfija utilizando una pila implementada con `ArrayDeque`. |
-| Consultas Estratégicas | Ejecuta búsquedas y filtrados flexibles delegando los criterios a comparadores especializados. |
-| Reportes Dinámicos | Genera tablas personalizadas exportables a TXT o CSV basándose en la selección de actividades y cálculos. |
-| Presentación Dual | Permite operar el sistema de manera idéntica e independiente desde la consola o una interfaz gráfica. |
+| Carga de Datos | Lee archivos CSV de forma automatizada para construir las estructuras internas del sistema. |
+| Evaluación de Cálculos | Procesa expresiones en notación posfija para cada estudiante mediante una pila. |
+| Consultas | Filtra y realiza búsquedas de actividades, entregas y estudiantes usando múltiples comparadores. |
+| Reportes | Genera tablas dinámicas de calificaciones con exportación directa a formato TXT y CSV. |
+
+---
+
+## Demostración
+
+[Ver video de prueba de la aplicación en Google Drive](https://www.google.com/search?q=https://drive.google.com/file/d/12ZgtqMgI5R5SIOCqYmEzz3WdIHWyEjGh/view?usp=drivesdk)
 
 ---
 
 ## Capturas de Pantalla
 
-*Próximamente*
+**Vista Principal**
+
 
 ---
 
@@ -50,26 +55,26 @@ El sistema se estructura bajo un enfoque netamente modular donde cada clase cump
 
 ### Prerrequisitos
 
-* Java Development Kit (JDK) con soporte para JavaFX.
-* Archivos de datos iniciales (`estudiantes.csv`, `actividades.csv`, `entregas.csv`, `calculos.csv`) disponibles en el directorio de ejecución.
+* JDK compatible con JavaFX
+* Archivos de datos (`estudiantes.csv`, `actividades.csv`, `entregas.csv`, `calculos.csv`) en la raíz del directorio de ejecución
 
 ### Levantar la aplicación
 
 ```bash
-# Ejecutar la clase principal del sistema
 java proyecto.Main
 
 ```
 
-> **Nota:** Al iniciar la ejecución se solicitará elegir interactivamente entre el Modo Consola (opción 1) o el Modo Interfaz Gráfica (opción 2).
-
 ---
 
 ## Integrantes
-| Karel González | Autor |
-| Justin Soledispa | Autor |
-| Juan Diego Sotomayor | Autor |
+
+| Integrante |
+| --- |
+| Karel González |
+| Justin Soledispa |
+| Juan Sotomayor |
 
 ---
 
-*Proyecto académico — Estructura de Datos · Universidad Espíritu Santo · 2026*
+*Proyecto académico — Estructura de Datos 1P · Universidad Espíritu Santo · 2026*
