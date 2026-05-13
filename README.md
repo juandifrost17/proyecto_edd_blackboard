@@ -40,7 +40,7 @@ El proyecto se estructura bajo un enfoque modular donde cada clase cumple una re
 
 ## Demostración
 
-[Ver video de prueba de la aplicación en Google Drive](https://www.google.com/search?q=https://drive.google.com/file/d/12ZgtqMgI5R5SIOCqYmEzz3WdIHWyEjGh/view?usp=drivesdk)
+[Ver video de prueba de la aplicación en funcionamiento](https://drive.google.com/file/d/12ZgtqMgI5R5SIOCqYmEzz3WdIHWyEjGh/view?usp=drivesdk)
 
 ---
 
