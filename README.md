@@ -163,64 +163,6 @@ C3,Nota Final Curso,Tarea 0.3 * Proyecto 0.3 * + Examen 0.4 * +
 
 ---
 
-## Instalación y ejecución
-
-### Prerrequisitos
-
-* JDK 17 o superior.
-* Maven.
-* Git, si se clona el repositorio.
-
-### Clonar el repositorio
-
-```bash
-git clone https://github.com/juandifrost17/proyecto_edd_blackboard.git
-cd proyecto_edd_blackboard/app
-```
-
-### Verificar compilación con Maven
-
-Desde la carpeta `app`:
-
-```bash
-mvn test
-```
-
-La verificación debe terminar con:
-
-```text
-BUILD SUCCESS
-```
-
-### Ejecutar la aplicación
-
-Desde la carpeta `app`:
-
-```bash
-mvn javafx:run
-```
-
-La aplicación mostrará el selector inicial:
-
-```text
-1. Modo Consola
-2. Modo Interfaz Gráfica
-```
-
-Seleccione `1` para usar menús en terminal o `2` para abrir la interfaz JavaFX.
-
-### Ejecutar desde IntelliJ IDEA
-
-1. Abrir IntelliJ IDEA.
-2. Seleccionar `Open` y abrir el archivo `app/pom.xml`.
-3. Esperar la importación de Maven.
-4. Crear una configuración `Application`.
-5. Usar como clase principal `proyecto.Main`.
-6. Configurar el directorio de trabajo como `app`.
-7. Ejecutar la configuración.
-
----
-
 ## Capturas del sistema
 
 Las siguientes capturas se encuentran en la carpeta `capturas/` y documentan el flujo completo: verificación con Maven, arranque de la aplicación, consultas, creación de actividades, reportes y exportación a CSV.
@@ -286,3 +228,61 @@ csv/reporte_calificaciones.txt
 ## Video demostrativo
 
 [Ver video en Google Drive](https://drive.google.com/file/d/12ZgtqMgI5R5SIOCqYmEzz3WdIHWyEjGh/view?usp=drivesdk)
+
+---
+
+## Instalación y ejecución
+
+### Prerrequisitos
+
+* JDK 17 o superior.
+* Maven.
+* Git, si se clona el repositorio.
+
+### Clonar el repositorio
+
+```bash
+git clone https://github.com/juandifrost17/proyecto_edd_blackboard.git
+cd proyecto_edd_blackboard/app
+```
+
+### Verificar compilación con Maven
+
+Desde la carpeta `app`:
+
+```bash
+mvn test
+```
+
+La verificación debe terminar con:
+
+```text
+BUILD SUCCESS
+```
+
+### Ejecutar la aplicación
+
+Desde la carpeta `app`:
+
+```bash
+mvn javafx:run
+```
+
+La aplicación mostrará el selector inicial:
+
+```text
+1. Modo Consola
+2. Modo Interfaz Gráfica
+```
+
+Seleccione `1` para usar menús en terminal o `2` para abrir la interfaz JavaFX.
+
+### Ejecutar desde IntelliJ IDEA
+
+1. Abrir IntelliJ IDEA.
+2. Seleccionar `Open` y abrir el archivo `app/pom.xml`.
+3. Esperar la importación de Maven.
+4. Crear una configuración `Application`.
+5. Usar como clase principal `proyecto.Main`.
+6. Configurar el directorio de trabajo como `app`.
+7. Ejecutar la configuración.
