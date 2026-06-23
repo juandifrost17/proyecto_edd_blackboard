@@ -19,8 +19,9 @@ public class ServicioConsultas {
     // Consulta 1: lista actividades cuya fecha limite ya vencio
     public String c1_ActividadesExpiradas() {
         StringBuilder out = new StringBuilder();
-        out.append("\n--- Actividades Expiradas ---\n");
-        Actividad referenciaFecha = new Actividad(new Date());
+        Date fechaReferencia = fechaActualSinHora();
+        out.append("\n--- Actividades Expiradas al ").append(SDF.format(fechaReferencia)).append(" ---\n");
+        Actividad referenciaFecha = new Actividad(fechaReferencia);
         ListaCompuesta<Actividad, Entrega> res = actividades.filtrarPorCriterioPrincipal(new ComparadorActividadPorFechaLimite(), referenciaFecha, -1);
         NodoCompuesto<Actividad, Entrega> b = res.getHeader();
         if (b == null) {
@@ -28,7 +29,7 @@ public class ServicioConsultas {
             return out.toString();
         }
         while (b != null) {
-            out.append(b.getData().getNombre()).append(" - ").append(b.getData().getFechaLimite()).append("\n");
+            out.append(b.getData().getNombre()).append(" - ").append(SDF.format(b.getData().getFechaLimite())).append("\n");
             b = b.getNext();
         }
         return out.toString();
@@ -113,7 +114,7 @@ public class ServicioConsultas {
     public String c6_EstudiantesFaltanExpiradas() {
         StringBuilder out = new StringBuilder();
         out.append("\n--- Estudiantes que NO han respondido al menos una actividad vencida ---\n");
-        Actividad referenciaFecha = new Actividad(new Date());
+        Actividad referenciaFecha = new Actividad(fechaActualSinHora());
         ListaCompuesta<Actividad, Entrega> actividadesVencidas = actividades.filtrarPorCriterioPrincipal(new ComparadorActividadPorFechaLimite(), referenciaFecha, -1);
         ListaCompuesta<Entrega, Object> refsVencidas = new ListaCompuesta<>();
         for (NodoCompuesto<Actividad, Entrega> a = actividadesVencidas.getHeader(); a != null; a = a.getNext()) {
@@ -288,5 +289,14 @@ public class ServicioConsultas {
         StringBuilder texto = new StringBuilder();
         for (int i = 0; i < n; i++) texto.append(c);
         return texto.toString();
+    }
+
+    // Normaliza la fecha actual para comparar solo yyyy-MM-dd, sin hora del sistema.
+    private Date fechaActualSinHora() {
+        try {
+            return SDF.parse(SDF.format(new Date()));
+        } catch (java.text.ParseException e) {
+            return new Date();
+        }
     }
 }

@@ -1,376 +1,288 @@
 # Blackboard - Sistema de Libro de Calificaciones
 
-## Descripción General
+**Blackboard** es una aplicación académica desarrollada en Java y JavaFX para gestionar estudiantes, actividades, entregas, cálculos de calificaciones, consultas y reportes. El sistema carga datos desde archivos CSV, los procesa mediante estructuras de datos personalizadas y permite usar la misma lógica desde consola o desde una interfaz gráfica de escritorio.
 
-Este proyecto consiste en un sistema académico tipo **Blackboard** desarrollado en **Java** para la gestión de calificaciones, actividades, entregas, consultas y reportes. La aplicación permite cargar información desde archivos CSV, procesar datos mediante estructuras de datos personalizadas y generar reportes de calificaciones en formato TXT o CSV.
+---
 
-El sistema puede ejecutarse en dos modalidades:
+## Descripción
 
-- **Modo consola**, mediante menús textuales.
-- **Modo gráfico**, mediante una interfaz de escritorio desarrollada con **JavaFX**.
+El proyecto simula un libro de calificaciones tipo Blackboard. La aplicación permite registrar actividades, consultar entregas, detectar casos académicos específicos y generar reportes personalizados en formato CSV o TXT.
 
-El proyecto fue desarrollado para la asignatura **Estructura de Datos** y aplica conceptos como listas compuestas, nodos genéricos, comparadores, pilas y manejo de archivos.
+La solución no usa base de datos. Los datos principales se leen desde archivos CSV ubicados en `app/`, y el procesamiento se realiza en memoria con listas compuestas, nodos genéricos, comparadores y evaluación de fórmulas en notación posfija.
 
-## Objetivo del Proyecto
+---
 
-El objetivo principal del proyecto es implementar un sistema de libro de calificaciones que permita administrar información académica mediante estructuras de datos propias.
+## Contexto académico
 
-El sistema permite:
+Este proyecto fue desarrollado como entrega académica para la materia de Estructura de Datos. La implementación aplica conceptos de programación orientada a objetos, manejo de archivos y estructuras de datos propias.
 
-- Cargar estudiantes desde archivos CSV.
-- Cargar actividades académicas.
-- Registrar y consultar entregas.
-- Evaluar cálculos de calificaciones mediante fórmulas en notación posfija.
-- Realizar consultas sobre actividades, entregas, estudiantes y cálculos.
-- Crear actividades manualmente.
-- Generar reportes personalizados de calificaciones.
-- Exportar reportes en formato TXT y CSV.
-- Usar la misma lógica principal tanto en consola como en interfaz gráfica.
+| Requisito | Implementación en Blackboard |
+| --- | --- |
+| Aplicación de escritorio | Interfaz JavaFX con módulos de consultas, reportes y creación de actividades. |
+| Modo consola | Menús textuales para ejecutar consultas, crear actividades y generar reportes. |
+| Estructura personalizada | `ListaCompuesta` y `NodoCompuesto` para relacionar estudiantes, actividades y entregas. |
+| Manejo de archivos | Carga de estudiantes, actividades, entregas y cálculos desde CSV. |
+| Consultas académicas | Búsquedas y filtros sobre entregas, actividades, estudiantes y cálculos. |
+| Ordenamiento | Comparadores personalizados mediante `Comparator`. |
+| Cálculos de notas | Evaluación de fórmulas en notación posfija usando pila. |
+| Reportes | Tabla personalizada exportable a CSV o TXT. |
+| Gestión de dependencias | Maven con JavaFX como dependencia principal. |
 
-## Tecnologías Utilizadas
+---
 
-- Java
-- JavaFX
-- Programación orientada a objetos
-- Archivos CSV
-- Archivos TXT
-- Estructuras de datos personalizadas:
-  - Lista compuesta genérica
-  - Nodo compuesto genérico
-  - Pila para evaluación de expresiones
-- Comparadores mediante `Comparator`
-- IntelliJ IDEA
+## Integrantes
 
-## Arquitectura General
+| Integrante |
+| --- |
+| Karel González |
+| Justin Soledispa |
+| Juan Diego Sotomayor |
 
-El proyecto separa la lógica del sistema, las estructuras de datos, los comparadores, el manejo de archivos y la interfaz gráfica. La clase `Main` permite elegir entre el modo consola y el modo gráfico.
+---
 
-```text
-Usuario
-│
-├── Modo Consola
-│   └── SistemaConsola
-│       ├── GestorConsultas
-│       ├── GestorReportes
-│       └── GestorCalculos
-│
-└── Interfaz Gráfica JavaFX
-    └── App / VistaBienvenida
-        ├── ModuloConsulta
-        ├── ModuloReporte
-        └── ModuloCrearActividad
+## Distribución modular
 
-Núcleo del sistema
-│
-├── CargadorDatos
-├── ServicioConsultas
-├── EvaluadorCalculos
-├── ListaCompuesta
-└── NodoCompuesto
-```
+| Módulo | Responsabilidad |
+| --- | --- |
+| Modelo | Representa estudiantes, actividades, entregas y cálculos. |
+| Carga de datos | Lee archivos CSV y construye las estructuras en memoria. |
+| Estructuras de datos | Implementa listas compuestas y nodos genéricos. |
+| Consultas | Ejecuta filtros y búsquedas sobre actividades, entregas y estudiantes. |
+| Cálculos | Evalúa fórmulas de calificación en notación posfija. |
+| Reportes | Genera tablas de calificaciones y exporta resultados. |
+| Comparadores | Ordena actividades, entregas y estudiantes según distintos criterios. |
+| Interfaz gráfica | Presenta los módulos principales en JavaFX. |
+| Consola | Permite operar el sistema desde menús textuales. |
 
-## Estructura del Repositorio
+---
+
+## Flujo general del sistema
+
+1. El usuario ejecuta la clase principal `proyecto.Main`.
+2. El sistema permite elegir entre modo consola o modo gráfico.
+3. Se cargan los archivos `estudiantes.csv`, `actividades.csv`, `entregas.csv` y `calculos.csv`.
+4. `CargadorDatos` crea las estructuras principales en memoria.
+5. Las entregas se asocian tanto a estudiantes como a actividades.
+6. El usuario ejecuta consultas académicas desde consola o JavaFX.
+7. El usuario puede registrar nuevas actividades, que se guardan en `actividades.csv`.
+8. El módulo de reportes permite seleccionar actividades y cálculos.
+9. El sistema calcula las notas y muestra una tabla por estudiante.
+10. El reporte puede exportarse en formato CSV o TXT.
+
+---
+
+## Funcionalidades principales
+
+* Carga de estudiantes desde CSV.
+* Carga de actividades académicas desde CSV.
+* Carga y asociación de entregas por estudiante y actividad.
+* Carga de cálculos de calificación.
+* Evaluación de fórmulas en notación posfija.
+* Consultas sobre actividades vencidas, entregas incompletas, calificaciones y estudiantes.
+* Detección de cálculos que no pueden ejecutarse por falta de notas.
+* Ordenamiento de estudiantes según un cálculo definido.
+* Creación manual de actividades desde consola o JavaFX.
+* Generación de reportes personalizados.
+* Exportación de reportes a CSV o TXT.
+
+---
+
+## Consultas disponibles
+
+| Número | Consulta |
+| --- | --- |
+| 1 | Actividades cuya fecha límite ya feneció. |
+| 2 | Actividades con entregas incompletas según cantidad de caracteres. |
+| 3 | Actividades con calificaciones menores a un valor dado. |
+| 4 | Entregas enviadas después de cierta fecha y aún no calificadas. |
+| 5 | Estudiantes con porcentaje de entregas mayor a un valor dado. |
+| 6 | Estudiantes que no han respondido actividades vencidas. |
+| 7 | Estudiantes que tienen la misma nota en dos actividades diferentes. |
+| 8 | Cálculos que no se pueden ejecutar por falta de calificaciones. |
+| 9 | Cálculos que involucran una actividad específica. |
+| 10 | Ordenamiento de estudiantes según un cálculo definido. |
+
+---
+
+## Stack tecnológico
+
+| Componente | Tecnología usada |
+| --- | --- |
+| Lenguaje | Java 17+ |
+| Interfaz gráfica | JavaFX |
+| Gestión de dependencias | Maven |
+| Datos | Archivos CSV |
+| Reportes | CSV y TXT |
+| Paradigma | Programación orientada a objetos |
+| Estructuras | Lista compuesta, nodo compuesto y pila |
+| IDE sugerido | IntelliJ IDEA |
+
+---
+
+## Estructura del repositorio
 
 ```text
 proyecto_edd_blackboard/
-│
-├── README.md
-│
 ├── app/
-│   ├── Blackboard.iml
-│   ├── actividades.csv
-│   ├── calculos.csv
-│   ├── entregas.csv
-│   ├── estudiantes.csv
-│   ├── reporte_calificaciones.csv
-│   ├── reporte_calificaciones.txt
-│   │
-│   ├── src/
-│   │   └── proyecto/
-│   │       ├── Actividad.java
-│   │       ├── Calculo.java
-│   │       ├── CargadorDatos.java
-│   │       ├── Entrega.java
-│   │       ├── Estudiante.java
-│   │       ├── EvaluadorCalculos.java
-│   │       ├── GestorCalculos.java
-│   │       ├── GestorConsultas.java
-│   │       ├── GestorReportes.java
-│   │       ├── ListaCompuesta.java
-│   │       ├── Main.java
-│   │       ├── NodoCompuesto.java
-│   │       ├── ServicioConsultas.java
-│   │       ├── SistemaConsola.java
-│   │       │
-│   │       ├── comparadores/
-│   │       │   ├── ComparadorActividadPorFechaLimite.java
-│   │       │   ├── ComparadorEntregaNoCalificada.java
-│   │       │   ├── ComparadorEntregaPorActividad.java
-│   │       │   ├── ComparadorEntregaPorActividadId.java
-│   │       │   ├── ComparadorEntregaPorCalificacion.java
-│   │       │   ├── ComparadorEntregaPorContenido.java
-│   │       │   ├── ComparadorEntregaPorFechaLimite.java
-│   │       │   ├── ComparadorEntregaPorLongitudContenido.java
-│   │       │   ├── ComparadorEstudiantePorCalculo.java
-│   │       │   └── CompararadorFechaLimite.java
-│   │       │
-│   │       └── interfaz/
-│   │           ├── App.java
-│   │           ├── ExportadorReporte.java
-│   │           ├── FXListUtils.java
-│   │           ├── ModeloDatosFX.java
-│   │           ├── ModuloConsulta.java
-│   │           ├── ModuloCrearActividad.java
-│   │           ├── ModuloReporte.java
-│   │           └── VistaBienvenida.java
-│   │
-│   └── out/
-│
-├── csv/
-│   ├── actividades.csv
-│   ├── calculos.csv
-│   ├── entregas.csv
-│   ├── estudiantes.csv
-│   ├── reporte_calificaciones.csv
-│   └── reporte_calificaciones.txt
-│
-└── docs/
-    ├── Consigna - Proyecto P1.pdf
-    └── Gonzalez-Soledispa-Sotomayor-DOCUMENTO DE DISEÑO.pdf
+│   ├── pom.xml                         # Configuración Maven del proyecto Java
+│   ├── actividades.csv                 # Datos base de actividades
+│   ├── calculos.csv                    # Fórmulas en notación posfija
+│   ├── entregas.csv                    # Entregas de estudiantes
+│   ├── estudiantes.csv                 # Datos de estudiantes
+│   ├── reporte_calificaciones.csv      # Ejemplo de reporte generado
+│   ├── reporte_calificaciones.txt      # Ejemplo de reporte generado
+│   └── src/
+│       └── proyecto/
+│           ├── *.java                  # Modelos, gestores y estructuras principales
+│           ├── comparadores/           # Comparadores personalizados
+│           └── interfaz/               # Aplicación JavaFX y módulos visuales
+├── capturas/                           # Evidencia visual del funcionamiento
+├── csv/                                # Copia de archivos CSV y reportes de apoyo
+├── docs/                               # Consigna y documento de diseño
+└── README.md                           # Documentación principal del proyecto
 ```
 
-## Principales Clases del Proyecto
+---
 
-| Clase | Descripción |
-|---|---|
-| `Main` | Clase principal. Permite seleccionar entre modo consola e interfaz gráfica. |
-| `SistemaConsola` | Controla el menú principal en consola. |
-| `CargadorDatos` | Carga estudiantes, actividades, entregas y cálculos desde archivos CSV. |
-| `ListaCompuesta` | Implementa una estructura genérica con nodos principales y listas secundarias. |
-| `NodoCompuesto` | Representa cada nodo de la lista compuesta. |
-| `Estudiante` | Modelo que representa a un estudiante. |
-| `Actividad` | Modelo que representa una actividad académica. |
-| `Entrega` | Modelo que representa la entrega de una actividad por parte de un estudiante. |
-| `Calculo` | Modelo que representa una fórmula de calificación. |
-| `EvaluadorCalculos` | Evalúa fórmulas en notación posfija mediante una pila. |
-| `GestorCalculos` | Gestiona consultas relacionadas con cálculos ejecutables y actividades involucradas. |
-| `GestorConsultas` | Controla el menú de consultas en modo consola. |
-| `ServicioConsultas` | Ejecuta la lógica de búsqueda y filtrado sobre las estructuras del sistema. |
-| `GestorReportes` | Genera reportes personalizados de calificaciones. |
-| `App` | Inicializa la aplicación JavaFX. |
-| `VistaBienvenida` | Pantalla principal de la interfaz gráfica. |
-| `ModuloConsulta` | Módulo gráfico para ejecutar consultas. |
-| `ModuloReporte` | Módulo gráfico para generar reportes. |
-| `ModuloCrearActividad` | Módulo gráfico para registrar nuevas actividades. |
+## Archivos CSV
 
-## Requisitos Previos
+El sistema espera los archivos CSV en el directorio de ejecución. Con Maven, el directorio correcto es `app/`.
 
-Para ejecutar el proyecto se necesita:
+| Archivo | Propósito |
+| --- | --- |
+| `estudiantes.csv` | Registra id, nombre, apellido, edad y correo de cada estudiante. |
+| `actividades.csv` | Registra id, nombre, fecha límite y tipo de actividad. |
+| `entregas.csv` | Registra entregas, contenido, calificación, fecha y estado de calificación. |
+| `calculos.csv` | Registra fórmulas de calificación en notación posfija. |
 
-- JDK 11 o superior.
-- JavaFX SDK compatible con la versión de JDK instalada.
-- IntelliJ IDEA u otro IDE compatible con Java.
-- Git, en caso de clonar el repositorio desde GitHub.
+Ejemplo de fórmula en `calculos.csv`:
 
-## Instalación
+```csv
+C3,Nota Final Curso,Tarea 0.3 * Proyecto 0.3 * + Examen 0.4 * +
+```
 
-Clonar el repositorio:
+---
+
+## Instalación y ejecución
+
+### Prerrequisitos
+
+* JDK 17 o superior.
+* Maven.
+* Git, si se clona el repositorio.
+
+### Clonar el repositorio
 
 ```bash
 git clone https://github.com/juandifrost17/proyecto_edd_blackboard.git
+cd proyecto_edd_blackboard/app
 ```
 
-Ingresar al proyecto:
+### Verificar compilación con Maven
+
+Desde la carpeta `app`:
 
 ```bash
-cd proyecto_edd_blackboard
+mvn test
 ```
 
-La aplicación se encuentra dentro de la carpeta:
-
-```bash
-app/
-```
-
-## Ejecución del Proyecto
-
-La clase principal del proyecto es:
+La verificación debe terminar con:
 
 ```text
-proyecto.Main
+BUILD SUCCESS
 ```
 
-Al ejecutar esta clase, el sistema permite seleccionar el modo de uso:
+### Ejecutar la aplicación
+
+Desde la carpeta `app`:
+
+```bash
+mvn javafx:run
+```
+
+La aplicación mostrará el selector inicial:
 
 ```text
 1. Modo Consola
 2. Modo Interfaz Gráfica
 ```
 
-### Ejecución en IntelliJ IDEA
+Seleccione `1` para usar menús en terminal o `2` para abrir la interfaz JavaFX.
 
-1. Abrir el proyecto en IntelliJ IDEA.
-2. Configurar un JDK compatible.
-3. Agregar JavaFX SDK como librería del proyecto.
-4. Configurar las opciones de VM para JavaFX:
+### Ejecutar desde IntelliJ IDEA
 
-```bash
---module-path /ruta/al/javafx-sdk/lib --add-modules javafx.controls
-```
+1. Abrir IntelliJ IDEA.
+2. Seleccionar `Open` y abrir el archivo `app/pom.xml`.
+3. Esperar la importación de Maven.
+4. Crear una configuración `Application`.
+5. Usar como clase principal `proyecto.Main`.
+6. Configurar el directorio de trabajo como `app`.
+7. Ejecutar la configuración.
 
-5. Ejecutar la clase:
+---
 
-```text
-proyecto.Main
-```
+## Capturas del sistema
 
-Para que la carga automática funcione correctamente, los archivos CSV deben estar disponibles en el directorio de ejecución. En este proyecto se encuentran dentro de la carpeta `app`.
+Las siguientes capturas se encuentran en la carpeta `capturas/` y documentan el flujo completo: verificación con Maven, arranque de la aplicación, consultas, creación de actividades, reportes y exportación a CSV.
 
-### Ejecución desde Terminal
+### Configuración y arranque
 
-Desde la carpeta `app`:
+| Verificación Maven | Selector de modo |
+| --- | --- |
+| ![Verificación Maven](capturas/1.png) | ![Selector de modo](capturas/2.png) |
+| El proyecto compila correctamente con Maven y finaliza con `BUILD SUCCESS`. | La clase `proyecto.Main` se ejecuta desde Maven y permite elegir entre modo consola e interfaz gráfica. |
 
-```bash
-cd app
-```
+### Interfaz gráfica
 
-Compilar el proyecto:
+![Pantalla inicial](capturas/3.png)
 
-```bash
-mkdir -p out/classes
-javac --module-path "$PATH_TO_FX" --add-modules javafx.controls -d out/classes $(find src -name "*.java")
-```
+La pantalla inicial carga los datos desde CSV y muestra el menú lateral con acceso a los módulos de consultas, reportes, creación de actividades y salida del sistema.
 
-Ejecutar la aplicación:
+### Consultas
 
-```bash
-java --module-path "$PATH_TO_FX" --add-modules javafx.controls -cp out/classes proyecto.Main
-```
+El módulo de consultas permite ejecutar filtros académicos sobre actividades, entregas, estudiantes y cálculos. En la evidencia se muestran actividades vencidas al `2026-06-22` y el ordenamiento de estudiantes por el cálculo `C1 - Promedio de Tareas`.
 
-En este caso, `PATH_TO_FX` debe apuntar a la carpeta `lib` del JavaFX SDK.
+| Actividades vencidas | Ordenamiento por cálculo |
+| --- | --- |
+| ![Actividades vencidas](capturas/4.png) | ![Ordenamiento por cálculo](capturas/5.png) |
+| El sistema muestra solo las actividades con fecha límite anterior a la fecha actual de referencia. | Los estudiantes se ordenan de forma descendente según el resultado del cálculo de promedio de tareas. |
 
-## Funcionalidades Principales
+### Creación de actividades
 
-### Modo Consola
+| Actividad creada |
+| --- |
+| ![Actividad creada](capturas/6.png) |
+| Se registra la actividad `A999 - Actividad de Evidencia` como tarea con fecha límite futura. La aplicación confirma el registro y guarda la actividad en `actividades.csv`. |
 
-El modo consola permite acceder a las siguientes opciones principales:
+### Reportes y exportación
 
-```text
-1. Consultas
-2. Reporte de Calificaciones
-3. Crear Actividad Manualmente
-exit. Salir del programa
-```
+El módulo de reportes permite seleccionar actividades y cálculos para construir una tabla de calificaciones por estudiante. En la evidencia se usa la actividad `A001 - Tarea 1` y el cálculo `C1 - Promedio de Tareas`.
 
-### Consultas Disponibles
+| Reporte generado | Exportación confirmada |
+| --- | --- |
+| ![Reporte generado](capturas/7.png) | ![Exportación confirmada](capturas/8.png) |
+| La tabla muestra los estudiantes junto con la nota de la actividad seleccionada y el cálculo generado. | La aplicación confirma que el archivo CSV fue generado correctamente. |
 
-El sistema incluye consultas sobre actividades, entregas, estudiantes y cálculos:
+| Archivo exportado |
+| --- |
+| ![Archivo exportado](capturas/9.png) |
+| LibreOffice Calc muestra el archivo `reporte.csv` exportado desde la aplicación, con las columnas `Estudiante`, `A001` y `C1`. |
 
-- Actividades cuya fecha límite ya venció.
-- Actividades con entregas incompletas según cantidad de caracteres.
-- Actividades con calificaciones menores a un valor dado.
-- Entregas enviadas después de cierta fecha y aún no calificadas.
-- Estudiantes con porcentaje de entregas mayor a un valor dado.
-- Estudiantes que no han respondido actividades vencidas.
-- Estudiantes que tienen la misma nota en dos actividades diferentes.
-- Cálculos que no se pueden ejecutar por falta de calificaciones.
-- Cálculos que involucran una actividad específica.
-- Ordenamiento de estudiantes según un cálculo definido.
+---
 
-### Interfaz Gráfica
+## Reportes generados
 
-La interfaz gráfica desarrollada con JavaFX incluye módulos para:
-
-- Ejecutar consultas.
-- Crear actividades.
-- Generar reportes personalizados.
-- Descargar reportes en formato TXT o CSV.
-
-## Manejo de Archivos CSV
-
-El proyecto utiliza archivos CSV como fuente de datos para estudiantes, actividades, entregas y cálculos.
-
-### `estudiantes.csv`
-
-```csv
-id,nombre,apellido,edad,email
-```
-
-Ejemplo:
-
-```csv
-E001,Justin,Soledispa,20,just@univ.edu
-```
-
-### `actividades.csv`
-
-```csv
-id,nombre,fecha_limite,tipo
-```
-
-Ejemplo:
-
-```csv
-A001,Tarea 1,2026-02-07,Tarea
-```
-
-### `entregas.csv`
-
-```csv
-id_estudiante,id_actividad,contenido,calificacion,fecha_entrega,calificada
-```
-
-Ejemplo:
-
-```csv
-E001,A001,"Solución completa",85,2026-02-06T20:00,true
-```
-
-### `calculos.csv`
-
-```csv
-id,nombre,formulaPosfija
-```
-
-Ejemplo:
-
-```csv
-C3,Nota Final Curso,Tarea 0.3 * Proyecto 0.3 * + Examen 0.4 * +
-```
-
-Los archivos de ejemplo están disponibles en:
+El repositorio incluye ejemplos de reportes:
 
 ```text
-app/
-csv/
-```
-
-## Reportes
-
-El sistema permite generar reportes de calificaciones a partir de actividades y cálculos seleccionados por el usuario.
-
-Los reportes pueden visualizarse en pantalla y exportarse en los siguientes formatos:
-
-- TXT
-- CSV
-
-El repositorio incluye ejemplos de reportes generados:
-
-```text
-app/reporte_calificaciones.txt
 app/reporte_calificaciones.csv
-csv/reporte_calificaciones.txt
+app/reporte_calificaciones.txt
 csv/reporte_calificaciones.csv
+csv/reporte_calificaciones.txt
 ```
 
-## Video Demostrativo
+---
 
-Puedes consultar el video demostrativo del proyecto en el siguiente enlace:
+## Video demostrativo
 
 [Ver video en Google Drive](https://drive.google.com/file/d/12ZgtqMgI5R5SIOCqYmEzz3WdIHWyEjGh/view?usp=drivesdk)
-
-## Integrantes del Grupo
-
-- Karel González
-- Justin Soledispa
-- Juan Diego Sotomayor

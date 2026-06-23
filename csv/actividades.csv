@@ -1,12 +1,12 @@
 id,nombre,fecha_limite,tipo
 A001,Tarea 1,2026-02-07,Tarea
-A002,Examen 1,2026-02-22,Examen
-A003,Proyecto Fase 1,2026-03-01,Proyecto
+A002,Examen 1,2026-06-30,Examen
+A003,Proyecto Fase 1,2026-06-15,Proyecto
 A004,Tarea 2,2026-02-15,Tarea
 A005,Tarea 3,2026-02-19,Tarea
-A006,Proyecto Fase 2,2026-03-07,Proyecto
-A007,Proyecto Fase 3,2026-03-14,Proyecto
-A008,Examen Mejoramiento,2026-03-13,Examen
+A006,Proyecto Fase 2,2026-07-07,Proyecto
+A007,Proyecto Fase 3,2026-07-14,Proyecto
+A008,Examen Mejoramiento,2026-07-13,Examen
 AS,AS,2026-02-04,Examen
 A009,Tarea Super Importante,2025-01-30,Tarea
-a000,DUMMY,2026-03-04,Tarea
+a000,DUMMY,2026-08-04,Tarea

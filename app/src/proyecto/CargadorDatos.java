@@ -143,6 +143,7 @@ public class CargadorDatos {
     // Lee el archivo CSV de calculos y carga la lista principal con sus formulas
     public void cargarCalculos(String ruta) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(ruta));
+        br.readLine();
         String linea;
         while ((linea = br.readLine()) != null) {
             String[] partes = linea.split(",");
